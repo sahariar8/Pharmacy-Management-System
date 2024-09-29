@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[AuthController::class,'Login'])->name('login');
 Route::get('/register',[AuthController::class,'Register'])->name('register');
 Route::get('/forget-password',[AuthController::class,'ForgetPassword'])->name('forgetPassword');
+
+Route::get('/admin/dashboard',[DashboardController::class,'Dashboard'])->name('admin.dashboard');
