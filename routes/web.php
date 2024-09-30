@@ -18,5 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[AuthController::class,'Login'])->name('login');
 Route::get('/register',[AuthController::class,'Register'])->name('register');
 Route::get('/forget-password',[AuthController::class,'ForgetPassword'])->name('forgetPassword');
+Route::post('/login-post',[AuthController::class,'LoginPost'])->name('login.post');
 
-Route::get('/admin/dashboard',[DashboardController::class,'Dashboard'])->name('admin.dashboard');
+Route::group(['middleware'=>'admin'],function(){
+    Route::get('/admin/dashboard',[DashboardController::class,'Dashboard'])->name('admin.dashboard');
+});
+Route::get('/logout',[AuthController::class,'LogOut'])->name('logout');
+
+

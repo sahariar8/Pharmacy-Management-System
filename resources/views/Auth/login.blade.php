@@ -21,13 +21,14 @@
                     <div class="card mb-3">
 
                         <div class="card-body">
-
+                            
                         <div class="pt-4 pb-2">
+                        @include('components.message')
                             <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
                         </div>
 
-                        <form class="row g-3 needs-validation" novalidate>
-
+                        <form method="post" action="{{ route('login.post')}}" class="row g-3 needs-validation" novalidate>
+                            @csrf
                             <div class="col-12">
                             <label for="yourUsername" class="form-label">Email</label>
                             <div class="input-group has-validation">
